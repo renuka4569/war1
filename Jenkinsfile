@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('clone repo'){
             steps{
-                git credentiaIsID : "demo",url : "https://github.com/renuka4569/face.git",branch:'branch'
+                git url : "https://github.com/renuka4569/face.git",branch:'branch'
             }
         }
         stage ('depenency'){
@@ -11,12 +11,12 @@ pipeline{
                 bat '''
                 pythob -m venv venv
                 call venv\\script\\active
-                python -m pip install --upgrade
+                python -m pip install --upgrade pip
                 pip install pytest
                 '''
                 }
         }
-        stages ('test'){
+        stage ('test'){
             steps{
                 bat '''
                 call venv\\script\\active
@@ -25,7 +25,7 @@ pipeline{
 
                 }
         }
-        stages('deploy'){
+        stage('deploy'){
             steps{
                 bat '''
                 call venv\\script\\active
