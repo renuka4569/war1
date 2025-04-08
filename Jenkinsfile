@@ -20,7 +20,7 @@ pipeline{
             steps{
                 bat '''
                 call venv\\script\\active
-                pytest(testfile.py)
+                pytest testfile.py
                 '''
 
                 }
