@@ -10,7 +10,7 @@ pipeline{
             steps{
                 bat '''
                 pythob -m venv venv
-                call venv\\script\\active
+                call venv\\Script\\active
                 python -m pip install --upgrade pip
                 pip install pytest
                 '''
@@ -19,7 +19,7 @@ pipeline{
         stage ('test'){
             steps{
                 bat '''
-                call venv\\script\\active
+                call venv\\Script\\active
                 pytest testfile.py
                 '''
 
@@ -28,7 +28,7 @@ pipeline{
         stage('deploy'){
             steps{
                 bat '''
-                call venv\\script\\active
+                call venv\\Script\\active
                 python hello.py
                 '''
                 }
