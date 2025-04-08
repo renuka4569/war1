@@ -10,22 +10,25 @@ pipeline{
             steps{
                 bat '''
                 pythob -m venv venv
-                call venu\\script\\active
+                call venv\\script\\active
                 python -m pip install --upgrade
                 pip install pytest
+                '''
                 }
         }
         stages ('test'){
-        steps{
-        bat '''
-        call venu\\script\\active
-        pytest(testfile.py)
-            }
+            steps{
+                bat '''
+                call venv\\script\\active
+                pytest(testfile.py)
+                '''
+
+                }
         }
         stages('deploy'){
             steps{
                 bat '''
-                call venu\\script\\active
+                call venv\\script\\active
                 python hello.py
                 '''
                 }
