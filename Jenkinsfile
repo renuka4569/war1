@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('clone repo'){
             steps{
-                git url : "https://github.com/renuka4569/face.git",branch:'branch'
+                git url:"https://github.com/renuka4569/face.git",branch:'main'
             }
         }
         stage ('depenency'){
